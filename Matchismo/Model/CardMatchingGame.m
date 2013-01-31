@@ -9,7 +9,10 @@
 #import "CardMatchingGame.h"
 
 @interface CardMatchingGame ()
+@property (nonatomic, readwrite) NSMutableArray *flippedCards;
+@property (nonatomic, readwrite) NSInteger lastFlipScore;
 @property (nonatomic, readwrite) NSInteger score;
+
 @property (nonatomic, strong) NSMutableArray *cards;
 @end
 
@@ -38,9 +41,15 @@
 
 - (void)flipCardAtIndex:(NSUInteger)index;
 {
+	[self.flippedCards removeAllObjects];
+	self.lastFlipScore = 0;
+	
 	PlayingCard *card = [self cardAtIndex:index];
 	if (card && !card.isUnplayable) {
 		if (!card.isFaceUp) {
+			
+			[self.flippedCards addObject:card.contents];
+			
 			for (PlayingCard *otherCard in self.cards) {
 				if (otherCard.isFaceUp && !otherCard.isUnplayable) {
 					NSInteger matchScore = [card match:@[otherCard]];
@@ -48,10 +57,13 @@
 						card.unplayable = YES;
 						otherCard.unplayable = YES;
 						self.score += matchScore * MATCH_BONUS;
+						self.lastFlipScore = matchScore * MATCH_BONUS;
 					} else {
 						otherCard.faceUp = NO;
 						self.score -= MISMATCH_PENALTY;
+						self.lastFlipScore = -MISMATCH_PENALTY;
 					}
+					[self.flippedCards addObject:otherCard.contents];
 					break;
 				}
 			}
@@ -76,6 +88,15 @@
 	}
 	
 	return _cards;
+}
+
+- (NSMutableArray *)flippedCards
+{
+	if (!_flippedCards) {
+		_flippedCards = [NSMutableArray array];
+	}
+	
+	return _flippedCards;
 }
 
 @end

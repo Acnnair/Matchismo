@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lastFlipLabel;
 
 @property (nonatomic) NSInteger flipCount;
 @property (nonatomic, strong) CardMatchingGame *game;
@@ -32,10 +33,22 @@
 		cardButton.enabled = !card.isUnplayable;
 		cardButton.alpha = (card.isUnplayable ? 0.3 : 1.0);
 	}
+	
 	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+	
+	if ([self.game.flippedCards count] == 1) {
+		self.lastFlipLabel.text = [@"Flipped " stringByAppendingString:[self.game.flippedCards lastObject]];
+	} else if ([self.game.flippedCards count] > 1) {
+		NSString *cards = [self.game.flippedCards componentsJoinedByString:@" & "];
+		
+		if (self.game.lastFlipScore < 0) {
+			self.lastFlipLabel.text = [NSString stringWithFormat:@"%@ don't match! %d points penalty.", cards, self.game.lastFlipScore];
+		} else {
+			self.lastFlipLabel.text = [NSString stringWithFormat:@"Matched %@ for %d points.", cards, self.game.lastFlipScore];
+		}
+	}
 }
 
-#pragma mark -
 #pragma mark - Actions
 
 - (IBAction)flipCard:(UIButton *)sender

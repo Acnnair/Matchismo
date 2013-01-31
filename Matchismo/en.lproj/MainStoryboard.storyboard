@@ -275,6 +275,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flip a card!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HAe-ga-sSR">
+                                <rect key="frame" x="20" y="391" width="280" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WKU-cZ-vMQ">
                                 <rect key="frame" x="215" y="419" width="85" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -287,6 +294,7 @@
                     </view>
                     <connections>
                         <outlet property="flipsLabel" destination="hgh-Yc-pL4" id="3sm-2m-Ac3"/>
+                        <outlet property="lastFlipLabel" destination="HAe-ga-sSR" id="mlU-Pg-ViW"/>
                         <outlet property="scoreLabel" destination="WKU-cZ-vMQ" id="gJS-38-q0H"/>
                         <outletCollection property="cardButtons" destination="jd3-aG-b3o" id="rMr-Bx-qHA"/>
                         <outletCollection property="cardButtons" destination="GzS-N6-1L9" id="3Hf-tk-Icg"/>
@@ -317,6 +325,7 @@
             <relationships>
                 <relationship kind="action" name="flipCard:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="flipsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lastFlipLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
             </relationships>

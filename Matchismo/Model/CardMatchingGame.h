@@ -11,10 +11,11 @@
 
 @interface CardMatchingGame : NSObject
 
+@property (readonly, nonatomic) NSMutableArray *flippedCards;
+@property (readonly, nonatomic) NSInteger lastFlipScore;
 @property (readonly, nonatomic) NSInteger score;
 
-- (id)initWithCardCount:(NSUInteger)count
-			  usingDeck:(PlayingCardDeck *)deck;
+- (id)initWithCardCount:(NSUInteger)count usingDeck:(PlayingCardDeck *)deck;
 - (void)flipCardAtIndex:(NSUInteger)index;
 - (PlayingCard *)cardAtIndex:(NSUInteger)index;
 
