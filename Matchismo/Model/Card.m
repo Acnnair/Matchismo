@@ -10,4 +10,17 @@
 
 @implementation Card
 
+- (NSInteger)match:(NSArray *)otherCards
+{
+	NSInteger score = 0;
+	
+	for (Card *otherCard in otherCards) {
+		if ([self.contents isEqualToString:otherCard.contents]) {
+			score = 1;
+		}
+	}
+	
+	return score;
+}
+
 @end
