@@ -58,8 +58,15 @@
 	[self updateUI];
 }
 
-#pragma mark -
-#pragma mark Properties
+- (IBAction)redeal:(UIButton *)sender
+{
+	self.game = nil;
+	self.flipCount = 0;
+	self.lastFlipLabel.text = @"Flip a card!";
+	[self updateUI];
+}
+
+#pragma mark - Properties
 
 - (void)setCardButtons:(NSArray *)cardButtons
 {
