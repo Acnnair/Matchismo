@@ -36,8 +36,7 @@
 	return randomCard;
 }
 
-#pragma mark -
-#pragma mark Properties
+#pragma mark - Properties
 
 - (NSMutableArray *)cards
 {

@@ -78,8 +78,7 @@
 	return (index < [self.cards count]) ? self.cards[index] : nil;
 }
 
-#pragma mark -
-#pragma mark Properties
+#pragma mark - Properties
 
 - (NSMutableArray *)cards
 {

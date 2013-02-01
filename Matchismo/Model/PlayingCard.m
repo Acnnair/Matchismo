@@ -43,8 +43,7 @@
 	return [self rankStrings].count - 1;
 }
 
-#pragma mark -
-#pragma mark Overrides
+#pragma mark - Overrides
 
 - (NSString *)contents
 {
@@ -66,8 +65,7 @@
 	return score;
 }
 
-#pragma mark -
-#pragma mark Private interface
+#pragma mark - Private interface
 
 + (NSArray *)rankStrings
 {
