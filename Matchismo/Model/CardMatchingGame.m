@@ -12,13 +12,14 @@
 @property (nonatomic, readwrite) NSMutableArray *flippedCards;
 @property (nonatomic, readwrite) NSInteger lastFlipScore;
 @property (nonatomic, readwrite) NSInteger score;
+@property (nonatomic) GameMode gameMode;
 
 @property (nonatomic, strong) NSMutableArray *cards;
 @end
 
 @implementation CardMatchingGame
 
-- (id)initWithCardCount:(NSUInteger)count usingDeck:(PlayingCardDeck *)deck
+- (id)initWithCardCount:(NSUInteger)count mode:(GameMode)mode usingDeck:(PlayingCardDeck *)deck
 {
 	if (self = [super init]) {
 		for (NSInteger i = 0; i < count; i++) {
@@ -30,6 +31,7 @@
 				break;
 			}
 		}
+		self.gameMode = mode;
 	}
 	
 	return self;
@@ -48,23 +50,36 @@
 	if (card && !card.isUnplayable) {
 		if (!card.isFaceUp) {
 			
-			[self.flippedCards addObject:card.contents];
+			[self.flippedCards addObject:card];
+			
+			NSMutableArray *availableCards = [[NSMutableArray alloc] init];
 			
 			for (PlayingCard *otherCard in self.cards) {
 				if (otherCard.isFaceUp && !otherCard.isUnplayable) {
-					NSInteger matchScore = [card match:@[otherCard]];
-					if (matchScore) {
-						card.unplayable = YES;
-						otherCard.unplayable = YES;
-						self.score += matchScore * MATCH_BONUS;
-						self.lastFlipScore = matchScore * MATCH_BONUS;
-					} else {
-						otherCard.faceUp = NO;
-						self.score -= MISMATCH_PENALTY;
-						self.lastFlipScore = -MISMATCH_PENALTY;
+					[availableCards addObject:otherCard];
+					if ([availableCards count] == self.gameMode - 1) {
+						NSInteger matchScore = [card match:availableCards];
+						if (matchScore) {
+							card.unplayable = YES;
+							[availableCards enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+								if ([obj isMemberOfClass:[PlayingCard class]]) {
+									[obj setUnplayable:YES];
+								}
+							}];
+							matchScore *= MATCH_BONUS * self.gameMode;
+							self.score += matchScore;
+							self.lastFlipScore = matchScore;
+						} else {
+							[availableCards enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+								if ([obj isMemberOfClass:[PlayingCard class]]) {
+									[obj setFaceUp:NO];
+								}
+							}];
+							self.score -= MISMATCH_PENALTY;
+							self.lastFlipScore = -MISMATCH_PENALTY;
+						}
+						[self.flippedCards addObjectsFromArray:availableCards];
 					}
-					[self.flippedCards addObject:otherCard.contents];
-					break;
 				}
 			}
 			self.score -= FLIP_COST;

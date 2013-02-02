@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastFlipLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeControl;
 
 @property (nonatomic) NSInteger flipCount;
 @property (nonatomic, strong) CardMatchingGame *game;
@@ -39,9 +40,10 @@
 	self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
 	
 	if ([self.game.flippedCards count] == 1) {
-		self.lastFlipLabel.text = [@"Flipped " stringByAppendingString:[self.game.flippedCards lastObject]];
+		PlayingCard *flippedCard = [self.game.flippedCards lastObject];
+		self.lastFlipLabel.text = [@"Flipped " stringByAppendingString:flippedCard.contents];
 	} else if ([self.game.flippedCards count] > 1) {
-		NSString *cards = [self.game.flippedCards componentsJoinedByString:@" & "];
+		NSString *cards = [self.game.flippedCards componentsJoinedByString:@" "];
 		
 		if (self.game.lastFlipScore < 0) {
 			self.lastFlipLabel.text = [NSString stringWithFormat:@"%@ don't match! %d points penalty.", cards, self.game.lastFlipScore];
@@ -49,6 +51,7 @@
 			self.lastFlipLabel.text = [NSString stringWithFormat:@"Matched %@ for %d points.", cards, self.game.lastFlipScore];
 		}
 	}
+	NSLog(@"%@", self.lastFlipLabel.text);
 }
 
 #pragma mark - Actions
@@ -60,7 +63,7 @@
 	[self updateUI];
 }
 
-- (IBAction)redeal:(UIButton *)sender
+- (IBAction)redeal
 {
 	self.game = nil;
 	self.flipCount = 0;
@@ -85,7 +88,10 @@
 - (CardMatchingGame *)game
 {
 	if (!_game) {
-		_game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[[PlayingCardDeck alloc] init]];
+		GameMode mode = self.gameModeControl.selectedSegmentIndex + 2; // Two: 0 -> 2, Three: 1 -> 3
+		_game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+													   mode:mode
+												  usingDeck:[[PlayingCardDeck alloc] init]];
 	}
 	
 	return _game;

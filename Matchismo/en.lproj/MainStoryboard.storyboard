@@ -276,7 +276,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flip a card!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HAe-ga-sSR">
-                                <rect key="frame" x="20" y="391" width="280" height="20"/>
+                                <rect key="frame" x="20" y="343" width="280" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -290,7 +290,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xGB-Us-C0f">
-                                <rect key="frame" x="164" y="348" width="136" height="44"/>
+                                <rect key="frame" x="164" y="368" width="136" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Redeal">
@@ -301,14 +301,26 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="redeal:" destination="2" eventType="touchUpInside" id="B6b-Ll-rQL"/>
+                                    <action selector="redeal" destination="2" eventType="touchUpInside" id="BgS-T3-jrs"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="gQ0-tQ-hfw">
+                                <rect key="frame" x="20" y="368" width="136" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Two"/>
+                                    <segment title="Three"/>
+                                </segments>
+                                <connections>
+                                    <action selector="redeal" destination="2" eventType="valueChanged" id="Fwq-HX-IXh"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="flipsLabel" destination="hgh-Yc-pL4" id="3sm-2m-Ac3"/>
+                        <outlet property="gameModeControl" destination="gQ0-tQ-hfw" id="QsL-bT-Fc7"/>
                         <outlet property="lastFlipLabel" destination="HAe-ga-sSR" id="mlU-Pg-ViW"/>
                         <outlet property="scoreLabel" destination="WKU-cZ-vMQ" id="gJS-38-q0H"/>
                         <outletCollection property="cardButtons" destination="jd3-aG-b3o" id="rMr-Bx-qHA"/>
@@ -331,7 +343,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56" y="36"/>
+            <point key="canvasLocation" x="-219" y="22"/>
         </scene>
     </scenes>
     <classes>
@@ -339,8 +351,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CardGameViewController.h"/>
             <relationships>
                 <relationship kind="action" name="flipCard:" candidateClass="UIButton"/>
-                <relationship kind="action" name="redeal:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="flipsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gameModeControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="lastFlipLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
