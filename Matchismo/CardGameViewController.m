@@ -60,6 +60,7 @@
 {
 	[self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
 	self.flipCount++;
+	self.gameModeControl.enabled = NO;
 	[self updateUI];
 }
 
@@ -68,6 +69,7 @@
 	self.game = nil;
 	self.flipCount = 0;
 	self.lastFlipLabel.text = @"Flip a card!";
+	self.gameModeControl.enabled = YES;
 	[self updateUI];
 }
 
