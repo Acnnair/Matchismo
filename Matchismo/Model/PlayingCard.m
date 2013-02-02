@@ -43,8 +43,7 @@
 	return [self rankStrings].count - 1;
 }
 
-#pragma mark -
-#pragma mark Overrides
+#pragma mark - Overrides
 
 - (NSString *)contents
 {
@@ -54,20 +53,28 @@
 - (NSInteger)match:(NSArray *)otherCards
 {
 	NSInteger score = 0;
+	NSUInteger multipier = 1;
 	
-	if ([otherCards count] == 1) {
-		PlayingCard *otherCard = [otherCards lastObject];
+	for (PlayingCard *otherCard in otherCards) {
 		if ([otherCard.suit isEqualToString:self.suit]) {
 			score = 1;
+			multipier++;
 		} else if (otherCard.rank == self.rank) {
 			score = 4;
+			multipier++;
+		} else {
+			return 0;
 		}
 	}
-	return score;
+	return score * multipier;
 }
 
-#pragma mark -
-#pragma mark Private interface
+- (NSString *)description
+{
+	return [self contents];
+}
+
+#pragma mark - Private interface
 
 + (NSArray *)rankStrings
 {
