@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6934ED116D69AF4000C1BF6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6934ED016D69AF4000C1BF6 /* SenTestingKit.framework */; };
+		A6934ED216D69AF4000C1BF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D7EF7016B3121E00A3BA4A /* UIKit.framework */; };
+		A6934ED316D69AF4000C1BF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D7EF7216B3121E00A3BA4A /* Foundation.framework */; };
+		A6934ED916D69AF4000C1BF6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6934ED716D69AF4000C1BF6 /* InfoPlist.strings */; };
+		A6934EDC16D69AF4000C1BF6 /* MatchismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6934EDB16D69AF4000C1BF6 /* MatchismoTests.m */; };
 		A6D7EF7116B3121E00A3BA4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D7EF7016B3121E00A3BA4A /* UIKit.framework */; };
 		A6D7EF7316B3121E00A3BA4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D7EF7216B3121E00A3BA4A /* Foundation.framework */; };
 		A6D7EF7516B3121E00A3BA4A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D7EF7416B3121E00A3BA4A /* CoreGraphics.framework */; };
@@ -28,6 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6934ECF16D69AF4000C1BF6 /* MatchismoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatchismoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6934ED016D69AF4000C1BF6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A6934ED616D69AF4000C1BF6 /* MatchismoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatchismoTests-Info.plist"; sourceTree = "<group>"; };
+		A6934ED816D69AF4000C1BF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A6934EDA16D69AF4000C1BF6 /* MatchismoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchismoTests.h; sourceTree = "<group>"; };
+		A6934EDB16D69AF4000C1BF6 /* MatchismoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchismoTests.m; sourceTree = "<group>"; };
+		A6934EDD16D69AF4000C1BF6 /* MatchismoTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MatchismoTests-Prefix.pch"; sourceTree = "<group>"; };
 		A6D7EF6C16B3121E00A3BA4A /* Matchismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matchismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D7EF7016B3121E00A3BA4A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A6D7EF7216B3121E00A3BA4A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -59,6 +71,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A6934ECB16D69AF4000C1BF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6934ED116D69AF4000C1BF6 /* SenTestingKit.framework in Frameworks */,
+				A6934ED216D69AF4000C1BF6 /* UIKit.framework in Frameworks */,
+				A6934ED316D69AF4000C1BF6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6D7EF6916B3121E00A3BA4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,10 +94,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6934ED416D69AF4000C1BF6 /* MatchismoTests */ = {
+			isa = PBXGroup;
+			children = (
+				A6934EDA16D69AF4000C1BF6 /* MatchismoTests.h */,
+				A6934EDB16D69AF4000C1BF6 /* MatchismoTests.m */,
+				A6934ED516D69AF4000C1BF6 /* Supporting Files */,
+			);
+			path = MatchismoTests;
+			sourceTree = "<group>";
+		};
+		A6934ED516D69AF4000C1BF6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6934ED616D69AF4000C1BF6 /* MatchismoTests-Info.plist */,
+				A6934ED716D69AF4000C1BF6 /* InfoPlist.strings */,
+				A6934EDD16D69AF4000C1BF6 /* MatchismoTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A6D7EF6116B3121E00A3BA4A = {
 			isa = PBXGroup;
 			children = (
 				A6D7EF7616B3121E00A3BA4A /* Matchismo */,
+				A6934ED416D69AF4000C1BF6 /* MatchismoTests */,
 				A6D7EF6F16B3121E00A3BA4A /* Frameworks */,
 				A6D7EF6D16B3121E00A3BA4A /* Products */,
 			);
@@ -85,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				A6D7EF6C16B3121E00A3BA4A /* Matchismo.app */,
+				A6934ECF16D69AF4000C1BF6 /* MatchismoTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +139,7 @@
 				A6D7EF7016B3121E00A3BA4A /* UIKit.framework */,
 				A6D7EF7216B3121E00A3BA4A /* Foundation.framework */,
 				A6D7EF7416B3121E00A3BA4A /* CoreGraphics.framework */,
+				A6934ED016D69AF4000C1BF6 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -157,6 +202,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A6934ECE16D69AF4000C1BF6 /* MatchismoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6934EE016D69AF4000C1BF6 /* Build configuration list for PBXNativeTarget "MatchismoTests" */;
+			buildPhases = (
+				A6934ECA16D69AF4000C1BF6 /* Sources */,
+				A6934ECB16D69AF4000C1BF6 /* Frameworks */,
+				A6934ECC16D69AF4000C1BF6 /* Resources */,
+				A6934ECD16D69AF4000C1BF6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MatchismoTests;
+			productName = MatchismoTests;
+			productReference = A6934ECF16D69AF4000C1BF6 /* MatchismoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		A6D7EF6B16B3121E00A3BA4A /* Matchismo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6D7EF9016B3121E00A3BA4A /* Build configuration list for PBXNativeTarget "Matchismo" */;
@@ -197,11 +260,20 @@
 			projectRoot = "";
 			targets = (
 				A6D7EF6B16B3121E00A3BA4A /* Matchismo */,
+				A6934ECE16D69AF4000C1BF6 /* MatchismoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A6934ECC16D69AF4000C1BF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6934ED916D69AF4000C1BF6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6D7EF6A16B3121E00A3BA4A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,7 +290,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A6934ECD16D69AF4000C1BF6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		A6934ECA16D69AF4000C1BF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6934EDC16D69AF4000C1BF6 /* MatchismoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6D7EF6816B3121E00A3BA4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,6 +333,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		A6934ED716D69AF4000C1BF6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6934ED816D69AF4000C1BF6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		A6D7EF7916B3121E00A3BA4A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -256,6 +360,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A6934EDE16D69AF4000C1BF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MatchismoTests/MatchismoTests-Prefix.pch";
+				INFOPLIST_FILE = "MatchismoTests/MatchismoTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A6934EDF16D69AF4000C1BF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MatchismoTests/MatchismoTests-Prefix.pch";
+				INFOPLIST_FILE = "MatchismoTests/MatchismoTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		A6D7EF8E16B3121E00A3BA4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -331,6 +473,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A6934EE016D69AF4000C1BF6 /* Build configuration list for PBXNativeTarget "MatchismoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6934EDE16D69AF4000C1BF6 /* Debug */,
+				A6934EDF16D69AF4000C1BF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A6D7EF6616B3121E00A3BA4A /* Build configuration list for PBXProject "Matchismo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
