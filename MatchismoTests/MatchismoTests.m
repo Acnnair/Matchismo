@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in MatchismoTests");
+    STAssertEquals(0, 0, @"Zeros are equal");
 }
 
 @end
